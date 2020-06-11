@@ -200,12 +200,8 @@ class TranslateFilesCommand extends Command
         curl_close($handle);
 
         if (isset($responseDecoded['error'])) {
-            /*$this->error("Google Translate API returned error");
-            if (isset($responseDecoded["error"]["message"])) {
-                $this->error($responseDecoded["error"]["message"]);
-            }*/
-            var_dump($responseDecoded);
-            exit;
+            dump($responseDecoded["error"]["message"]);
+            return "";
         }
 
         return $responseDecoded['data']['translations'][0]['translatedText'];
